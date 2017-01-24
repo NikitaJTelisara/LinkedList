@@ -1,10 +1,4 @@
-/**
- * Created with IntelliJ IDEA.
- * User: NT030798
- * Date: 1/22/17
- * Time: 9:36 PM
- * To change this template use File | Settings | File Templates.
- */
+
 public class Node {
     Node next;
     int data;
