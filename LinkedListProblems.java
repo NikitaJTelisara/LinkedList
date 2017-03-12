@@ -353,6 +353,24 @@ public class LinkedListProblems {
         }
         return result;
     }
+    /* better
+    public static Node addList(Node n1, Node n2, int carry) {
+        if (n1 == null && n2 == null && carry == 0) {
+            return null;
+        }
+        int sum = carry;
+        if (n1 != null) {
+            sum += n1.data;
+        }
+        if (n2 != null) {
+            sum += n2.data;
+        }
+        Node n = new Node(sum % 10);
+        n.next = addList((n1 == null ? null : n1.next), (n2 == null ? null : n2.next), sum > 10 ? 1 : 0);
+        return n;
+    }
+    */
+    
 
     /*2.6, check a linked list is a loop */
     public static boolean isLoop(Node head) {
