@@ -154,6 +154,28 @@ public class LinkedListProblems {
         }
         return head;
     }
+    
+    /*better
+    
+     public static void deleteNode(Node n, int d) {
+        if (n.data == d) {
+            if(n.next != null){
+                n = n.next;
+            }
+        }
+        while (n.next != null) {
+            if (n.next.data == d) {
+                if (n.next.next != null) {
+                    n.next = n.next.next;
+                }else {
+                    n.next = null;
+                }
+            } else{
+                n = n.next;
+            }
+        }
+    }
+    */
 
     /*2.1*/
     public static Node deleteDuplicateNode(Node head) {
