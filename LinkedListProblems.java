@@ -277,7 +277,7 @@ public class LinkedListProblems {
         return n;
     }
 
-    /*2.4, all nodes less than x come before alt nodes greater than or equal to*/
+    /*2.4, all nodes less than x come before all nodes greater than or equal to*/
     public static Node partitionNode(Node head, int x) {
         System.out.println("\n");
         System.out.println("given list " + x);
