@@ -194,6 +194,21 @@ public class LinkedListProblems {
         }
         return newHead.data;
     }
+    
+    /*better
+     public static void getkth(Node head,int k){
+        Node p2 = head;
+        k-=1;
+        while(k>0){
+            p2 = p2.next;
+            k--;
+        }
+        while(p2.next != null){
+            head = head.next;
+            p2 = p2.next;
+        }
+        System.out.println(head.data);
+    }*/
 
     public static int betterfindKthLastElement(Node head, int k) {
         System.out.print("Given node");
