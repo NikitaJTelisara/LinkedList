@@ -198,6 +198,27 @@ public class LinkedListProblems {
         }
         return head;
     }
+    
+    /* better
+    public static void deletedupNode(Node n) {
+        Hashtable t = new Hashtable();
+        if (n != null) {
+            t.put(n.data, true);
+        }
+        while (n.next != null) {
+            if (!t.containsKey(n.next.data)) {
+                t.put(n.next.data, true);
+                n = n.next;
+            } else {
+                if (n.next.next != null) {
+                    n.next = n.next.next;
+                } else {
+                    n.next = null;
+                }
+            }
+        }
+    }
+    */
 
     /*2.2*/
     public static int findKthLastElement(Node head, int k) {
