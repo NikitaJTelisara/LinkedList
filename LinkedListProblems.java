@@ -142,9 +142,10 @@ public class LinkedListProblems {
             System.out.println("List is empty");
             return null;
         }
-        if (head.data == n) {
+        while(head.data == n){
             head = head.next;
         }
+        LinkedListNode head1 = head;
         while (head.next != null) {
             if (head.next.data == n) {
                 head.next = head.next.next;
@@ -152,7 +153,7 @@ public class LinkedListProblems {
                 head = head.next;
             }
         }
-        return head;
+        return head1;
     }
     
     /*better
