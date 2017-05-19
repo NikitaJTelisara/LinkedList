@@ -416,6 +416,19 @@ public class LinkedListProblems {
         }
         return false;
     }
+    
+    /* correct and 1 extra pointer
+    public static boolean isLoop(LinkedListNode head) {
+        LinkedListNode p2 = head;
+        while (head != null && p2.next != null && p2 != null) {
+            head = head.next;
+            p2 = p2.next.next;
+            if (head == p2) {
+                return true;
+            }
+        }
+        return false;
+    } */
 
     /*2.6*/
     public static Node findLoopStartPoint(Node head) {
