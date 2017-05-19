@@ -332,6 +332,36 @@ public class LinkedListProblems {
         beforeEnd.next = afterStart;
         return beforeStart;
     }
+    
+    /* better
+    public static LinkedListNode partitionNode(LinkedListNode head, int x) {
+        LinkedListNode head1 = null;
+        LinkedListNode before = null;
+        LinkedListNode after = null;
+        while (head != null) {
+            if (head.data < x) {
+                if (before == null) {
+                    before = new LinkedListNode(head.data);
+                    head1 = before;
+                } else {
+                    before.next = new LinkedListNode(head.data);
+                    before = before.next;
+                }
+            } else if (head.data > x) {
+                if (after == null) {
+                    after = new LinkedListNode(head.data);
+                } else {
+                    after.appendToTail(head.data);
+                }
+            }
+            head = head.next;
+        }
+        before.next = new LinkedListNode(x);
+        before = before.next;
+        before.next = after;
+        return head1;
+    }
+    */
 
     /*2.5, 216 + 295 = 511, if n1 = 612, n2 =592 return 115 */
     public static Node addList(Node n1, Node n2, int carry) {
