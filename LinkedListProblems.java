@@ -397,7 +397,7 @@ public class LinkedListProblems {
             sum += n2.data;
         }
         Node n = new Node(sum % 10);
-        n.next = addList((n1 == null ? null : n1.next), (n2 == null ? null : n2.next), sum > 10 ? 1 : 0);
+        n.next = addList((n1 == null ? null : n1.next), (n2 == null ? null : n2.next), sum >= 10 ? 1 : 0);
         return n;
     }
     */
