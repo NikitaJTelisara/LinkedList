@@ -451,6 +451,28 @@ public class LinkedListProblems {
         }
         return null;
     }
+    /* better
+    public static int findLoopStartPoint(LinkedListNode head1) {
+        LinkedListNode p1 = head1;
+        LinkedListNode p2 = head1;
+        while (p1 != null && p2.next != null && p2 != null) {
+            p1 = p1.next;
+            p2 = p2.next.next;
+            if (p1 == p2) {
+                break;
+            }
+        }
+
+        p1 = head1;
+        while (p1 != null && p2 != null) {
+            p1 = p1.next;
+            p2 = p2.next;
+            if (p1 == p2) {
+                return p1.data;
+            }
+        }
+        return -1;
+    }*/
 
     /*2.7*/
     public static boolean checkListIsPalindrome(Node head) {
