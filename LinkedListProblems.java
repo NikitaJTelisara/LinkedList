@@ -333,34 +333,36 @@ public class LinkedListProblems {
         return beforeStart;
     }
     
-    /* better
+    /* better with 2 pointers
     public static LinkedListNode partitionNode(LinkedListNode head, int x) {
-        LinkedListNode head1 = null;
-        LinkedListNode before = null;
-        LinkedListNode after = null;
+        if (head == null) {
+            return head;
+        }
+        LinkedListNode beginStart = null;
+        LinkedListNode afterStart = null;
         while (head != null) {
+            LinkedListNode node = new LinkedListNode(head.data);
             if (head.data < x) {
-                if (before == null) {
-                    before = new LinkedListNode(head.data);
-                    head1 = before;
+                if (beginStart == null) {
+                    beginStart = node;
                 } else {
-                    before.next = new LinkedListNode(head.data);
-                    before = before.next;
+                    beginStart.appendNode(node);
                 }
             } else if (head.data > x) {
-                if (after == null) {
-                    after = new LinkedListNode(head.data);
+                if (afterStart == null) {
+                    afterStart = node;
+
                 } else {
-                    after.appendToTail(head.data);
+                    afterStart.appendNode(node);
                 }
             }
             head = head.next;
         }
-        before.next = new LinkedListNode(x);
-        before = before.next;
-        before.next = after;
-        return head1;
+        beginStart.appendNode(new LinkedListNode(x));
+        beginStart.appendNode(afterStart);
+        return beginStart;
     }
+
     */
 
     /*2.5, 216 + 295 = 511, if n1 = 612, n2 =592 return 115 */
