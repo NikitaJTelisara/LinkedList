@@ -503,7 +503,7 @@ public class LinkedListProblems {
            nn.prev = nn;
            nn = nn.next;
        }
-       // better while(head!=nn && nn.next != head)
+       // better while(head!=nn && nn.next != head){
        while (head !=nn && head!=null && nn!=null){
            if(head.data != nn.data){
                return false;
