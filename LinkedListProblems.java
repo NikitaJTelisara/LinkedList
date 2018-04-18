@@ -498,20 +498,19 @@ public class LinkedListProblems {
     }
     /* if double linked list, you can do it in place
     public static boolean checkListIsPalindrome(LinkedListNode head) {
-       LinkedListNode nn = head;
-       while(nn.next!= null){
-           nn.prev = nn;
-           nn = nn.next;
-       }
-       // better while(head!=nn && nn.next != head){
-       while (head !=nn && head!=null && nn!=null){
-           if(head.data != nn.data){
-               return false;
-           }else {
-               head = head.next;
-               nn = nn.prev;
-           }
-       }
+        LinkedListNode nn = head;
+        while (nn.next != null) {
+            //nn.prev = nn;
+            nn = nn.next;
+        }
+        while (head != nn && nn.next != head) {
+            if (head.data != nn.data) {
+                return false;
+            } else {
+                head = head.next;
+                nn = nn.prev;
+            }
+        }
         return true;
     }
     */
