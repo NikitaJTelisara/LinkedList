@@ -444,7 +444,7 @@ public class LinkedListProblems {
                 break;
             }
         }
-        while (p1.next != null && p2.next != null) {
+        while (p1.next != null && p2.next != null && p2 != null) {
             p1 = p1.next;
             p2 = p2.next;
             if (p1 == p2) {
