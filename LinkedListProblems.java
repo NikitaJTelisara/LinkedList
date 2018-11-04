@@ -191,35 +191,21 @@ public class LinkedListProblems {
         return newHead.data;
     }
     
-    /*better
-     public static void getkth(Node head,int k){
-        Node p2 = head;
-        k-=1;
-        while(k>0){
-            p2 = p2.next;
-            k--;
-        }
-        while(p2.next != null){
+    
+    public static int findKthLastElement(Node head, int n) {
+        Node head1 = head;
+        while ((head != null) && (n > 1)) {
             head = head.next;
-            p2 = p2.next;
+            n--;
         }
-        System.out.println(head.data);
-    }*/
-
-    public static int betterfindKthLastElement(Node head, int k) {
-        System.out.print("Given node");
-        System.out.print("\n");
-        printList(head);
-        Node p1 = head;
-        Node p2 = head;
-        for (int i = 0; i < k - 1; i++) {
-            p2 = p2.next;
+        if(head == null){
+            return -1;
         }
-        while (p2.next != null) {
-            p1 = p1.next;
-            p2 = p2.next;
+        while (head.next != null) {
+            head = head.next;
+            head1 = head1.next;
         }
-        return p1.data;
+        return head1.data;
     }
 
     /*delete a node in the middle of a singly linked list, given only access to that node*/
