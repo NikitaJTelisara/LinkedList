@@ -174,25 +174,7 @@ public class LinkedListProblems {
     }
     
     /*2.2*/
-    public static int findKthLastElement(Node head, int k) {
-        printList(head);
-        int i = 0;
-        int j = 0;
-        Node newHead = head;
-        while (head != null) {
-            head = head.next;
-            i++;
-        }
-        int n = i - k;
-        while (j < n) {
-            newHead = newHead.next;
-            j++;
-        }
-        return newHead.data;
-    }
-    
-    
-    public static int findKthLastElement(Node head, int n) {
+   public static int findKthLastElement(Node head, int n) {
         Node head1 = head;
         while ((head != null) && (n > 1)) {
             head = head.next;
