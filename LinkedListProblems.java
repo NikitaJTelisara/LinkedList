@@ -138,89 +138,41 @@ public class LinkedListProblems {
     }
 
     public static Node deleteNode(Node head, int n) {
-        if (head == null) {
-            System.out.println("List is empty");
-            return null;
-        }
-        while(head.data == n){
+        while ((head != null) && (head.data == n)) {  // if (1,1,1,1,1,2,2,2 if d==1
+        // while ((head.data == n) && (head != null)) { // this cant work chead head == null first
             head = head.next;
         }
-        LinkedListNode head1 = head;
-        while (head.next != null) {
-            if (head.next.data == n) {
-                head.next = head.next.next;
-            } else {
-                head = head.next;
-            }
-        }
-        return head1;
-    }
-    
-    /*better
-    
-     public static void deleteNode(Node n, int d) {
-        if (n.data == d) {
-            if(n.next != null){
-                n = n.next;
-            }
-        }
-        while (n.next != null) {
-            if (n.next.data == d) {
-                if (n.next.next != null) {
-                    n.next = n.next.next;
-                }else {
-                    n.next = null;
-                }
-            } else{
-                n = n.next;
-            }
-        }
-    }
-    */
-
-    /*2.1*/
-    public static Node deleteDuplicateNode(Node head) {
-        /* hash table does not allow null values*/
-        Hashtable h = new Hashtable();
-        if (head == null) {
-            System.out.println("List is empty");
+        if (head == null) {    // if (1,1,1,1,1 if d==1
             return null;
-        } else {
-            h.put(head.data, true);
         }
-        while (head.next != null) {
-            int val = head.next.data;
-            if (h.containsKey(val)) {
-                head.next = head.next.next;
+        Node head1 = head;
+        while (head1.next != null) {
+            if (head1.next.data == n) {
+                head1.next = head1.next.next;
             } else {
-                head = head.next;
-                h.put(val, true);
+                head1 = head1.next;
             }
         }
         return head;
     }
-    
-    /* better
-    public static void deletedupNode(Node n) {
-        Hashtable t = new Hashtable();
-        if (n != null) {
-            t.put(n.data, true);
-        }
-        while (n.next != null) {
-            if (!t.containsKey(n.next.data)) {
-                t.put(n.next.data, true);
-                n = n.next;
-            } else {
-                if (n.next.next != null) {
-                    n.next = n.next.next;
-                } else {
-                    n.next = null;
-                }
-            }
-        }
-    }
-    */
 
+    /*2.1*/
+    public static void deletedupNode(Node n1) {
+        Set<Integer> s1 = new HashSet<Integer>(); // hashset does not take primitive types , takes objects only
+        Node n = n1;
+        if (n1 != null) {
+            s1.add(n1.data);
+        }
+        while (n1.next != null) {
+            if (s1.add(n1.next.data)) {   // would return false if dup 
+                n1 = n1.next;
+            } else {
+                n1.next = n1.next.next;
+            }
+        }        
+        // return n;
+    }
+    
     /*2.2*/
     public static int findKthLastElement(Node head, int k) {
         printList(head);
