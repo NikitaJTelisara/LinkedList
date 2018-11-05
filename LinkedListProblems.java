@@ -386,6 +386,33 @@ public class LinkedListProblems {
         }
         return true;
     }
+    
+    /* or useanother linked list
+    public static boolean checkListIsPalindrome(Node head) {
+        Node head1 = null;
+        Node head2 = head;
+        while (head != null) {
+            Node n = new Node(head.data);
+            if (head1 == null) {
+                head1 = n;
+            } else {
+                n.next = head1;
+                head1 = n;
+            }
+            head = head.next;
+        }
+        while (head2 != null) {
+            if (head2.data != head1.data) {
+                return false;
+            }
+            head2 = head2.next;
+            head1 = head1.next;
+        }
+        return true;
+    }
+
+   */ 
+    
     /* if double linked list, you can do it in place
     public static boolean checkListIsPalindrome(LinkedListNode head) {
         LinkedListNode nn = head;
