@@ -199,91 +199,61 @@ public class LinkedListProblems {
     }
 
     /*2.4, all nodes less than x come before all nodes greater than or equal to*/
+  // 3 nodes but no use to appendToTail() reduces complexity
     public static Node partitionNode(Node head, int x) {
-        System.out.println("\n");
-        System.out.println("given list " + x);
-        System.out.println("\n");
-        printList(head);
-        Node beforeStart = null;
-        Node beforeEnd = null;
-        Node centerStart = null;
-        Node afterStart = null;
+        Node beginStart = null;
+        Node beginEnd = null;
+        Node after = null;
         while (head != null) {
-            if (head.data < x) {
-                if (beforeEnd == null) {
-                    beforeEnd = new Node(head.data);
-                    beforeStart = beforeEnd;
+            Node n = new Node(head.data);
+            if (n.data > x) {
+                if (after == null) {
+                    after = n;
                 } else {
-                    if (beforeEnd == beforeStart) {
-                        beforeStart = new Node(head.data);
-                        beforeStart.next = beforeEnd;
-                    } else {
-                        Node temp = new Node(head.data);
-                        temp.next = beforeStart;
-                        beforeStart = temp;
-                    }
-                }
-            }
-            if (head.data == x) {
-                if (centerStart == null) {
-                    centerStart = new Node(head.data);
-                } else {
-                    Node temp = new Node(head.data);
-                    temp.next = centerStart;
-                    centerStart = temp;
-                }
-            }
-            if (head.data > x) {
-                if (afterStart == null) {
-                    afterStart = new Node(head.data);
-                } else {
-                    Node temp = new Node(head.data);
-                    temp.next = afterStart;
-                    afterStart = temp;
-                }
-            }
-            head = head.next;
-        }
-        while (centerStart != null) {
-            beforeEnd.next = centerStart;
-            beforeEnd = beforeEnd.next;
-            centerStart = centerStart.next;
-        }
-        beforeEnd.next = afterStart;
-        return beforeStart;
-    }
-    
-    /* better with 2 pointers
-    public static LinkedListNode partitionNode(LinkedListNode head, int x) {
-        if (head == null) {
-            return head;
-        }
-        LinkedListNode beginStart = null;
-        LinkedListNode afterStart = null;
-        while (head != null) {
-            LinkedListNode node = new LinkedListNode(head.data);
-            if (head.data < x) {
+                    n.next = after;
+                    after = n;
+               }
+            } else {
                 if (beginStart == null) {
-                    beginStart = node;
+                    beginStart = n;
+                    beginEnd = beginStart;
                 } else {
-                    beginStart.appendNode(node);
-                }
-            } else if (head.data > x) {
-                if (afterStart == null) {
-                    afterStart = node;
-
-                } else {
-                    afterStart.appendNode(node);
+                    beginEnd.next = n;
+                    beginEnd = beginEnd.next;
                 }
             }
             head = head.next;
         }
-        beginStart.appendNode(new LinkedListNode(x));
-        beginStart.appendNode(afterStart);
+        beginEnd.next = after;
         return beginStart;
     }
-
-    */
+    
+    /*
+    2 nodes increases the complexity because of appendToTail()
+     public static Node partitionNode(Node head, int x) {
+        Node begin = null;
+        Node after = null;
+        while (head != null) {
+            Node n = new Node(head.data);
+            if (n.data > x) {
+                if (after == null) {
+                    after = n;
+                } else {
+                    n.next = after;
+                    after = n;
+               }
+            } else {
+                if (begin == null) {
+                    begin = n;
+                } else {
+                    begin.appendToTail(n);
+                }
+            }
+            head = head.next;
+        }
+        begin.appendToTail(after);
+        return begin;
+    }*/
 
     /*2.5, 216 + 295 = 511, if n1 = 612, n2 =592 return 115 */
     public static Node addList(Node n1, Node n2, int carry) {
