@@ -326,21 +326,20 @@ public class LinkedListProblems {
     public static Node findLoopStartPoint(Node head) {
         Node p1 = head;
         Node p2 = head;
-        while (p1.next != null && p2.next.next != null) {
+        while(p1 != null && p2 != null && p2.next != null){
             p1 = p1.next;
             p2 = p2.next.next;
-            if (p1 == p2) {
+            if(p1 == p2){
                 p1 = head;
-                break;
+                while(p1 != null && p2 != null){
+                     if(p1 == p2){
+                         return p1;
+                     }
+                     p1 = p1.next;
+                     p2 = p2.next;
+                 }
             }
-        }
-        while (p1.next != null && p2.next != null && p2 != null) {
-            p1 = p1.next;
-            p2 = p2.next;
-            if (p1 == p2) {
-                return p1;
-            }
-        }
+        }  
         return null;
     }
     /* better
